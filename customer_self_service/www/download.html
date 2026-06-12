@@ -1,0 +1,14 @@
+{% extends "templates/web.html" %}
+{% block title %}
+{{ _("Downloads") }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    {{app_name}}
+    {{frappe.form_dict}}
+</div>
+
+{% endblock %}

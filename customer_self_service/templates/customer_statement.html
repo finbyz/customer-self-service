@@ -1,0 +1,74 @@
+<h4 class="text-center">
+    {% if filters.party_name %}
+        {{ filters.party_name }}
+    {% elif (filters.party and filters.party.length) %}
+        {{ filters.party }}
+    {% elif filters.account %}
+        {{ filters.account }}
+    {% endif %}
+</h4>
+
+<h6 class="text-center">
+    {% if filters.tax_id %}
+    {{ "Tax Id: " }}	{{ filters.tax_id }}
+    {% endif %}
+</h6>
+
+
+<hr>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 12%">{{ "Date" }}</th>
+            <th style="width: 15%">{{ "Ref" }}</th>
+            <th style="width: 25%">{{ "Remarks" }}</th>
+            <th style="width: 15%">{{ "Debit" }}</th>
+            <th style="width: 15%">{{ "Credit" }}</th>
+            <th style="width: 18%">{{ "Balance (Dr - Cr)" }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in data %}
+            <tr>
+
+            {% if d.posting_date %}
+                <td>{{ d.posting_date }}</td>
+                <td>
+                    {{ d.voucher_type }}
+                    <br>
+                    {{ d.voucher_no }}
+                </td>
+                <td>
+                    {% if not (filters.party or filters.account)  %}
+                        {{ d.party or d.account }}
+                        <br>
+                    {% endif %}
+
+                    {{ "Against" }}: {{ d.against }}
+                    <br>{{ "Remarks" }}: {{ d.remarks }}
+                    {% if d.bill_no %}
+                        <br>{{ "Supplier Invoice No" }}: {{ d.bill_no }}
+                    {% endif %}
+                </td>
+                    <td style="text-align: right">
+                        {{ d.debit }}</td>
+                    <td style="text-align: right">
+                        {{ d.credit }}</td>
+            {% else %}
+                <td></td>
+                <td></td>
+        
+                <td style="text-align: right">
+                    {{ d.account and d.debit }}
+                </td>
+                <td style="text-align: right">
+                    {{ d.account and d.credit }}
+                </td>
+            {% endif %}
+                <td style="text-align: right">
+                    {{ d.balance }}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

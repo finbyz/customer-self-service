@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "upstream"]
+	url = file:///home/frappe/context/apps/customer_self_service
+[remote "origin"]
+	url = https://github.com/finbyz/customer-self-service.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[user]
+	name = finbyz
+	email = info@finbyz.tech

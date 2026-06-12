@@ -1,0 +1,31 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-09-16 17:04:33.361041",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_image"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_image",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Item Image"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-09-16 17:04:40.872151",
+ "modified_by": "Administrator",
+ "module": "Customer Self Service",
+ "name": "Item Images",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
